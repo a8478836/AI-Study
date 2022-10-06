@@ -1,6 +1,9 @@
 # AI-Study
 ## Data pipeline
-데이터를 운반하는 효율적인 입력 파이프라인이 필요 이것은 모델을 학습하는 것과 독립적으로 이루어짐 보통 tf.data.Dataset을 상속해서 클래스를 정의하는 듯
+데이터를 운반하는 효율적인 입력 파이프라인이 필요. 보통 tf.data.Dataset을 상속해서 클래스를 정의하는 듯
+데이터를 적재, 전처리, 셔플 하는 과정을 병렬적으로 수행한다면 전체적인 시간을 줄일 수 있고 컴퓨팅 리소스를 최대한 활용할 수 있음
+https://ahnjg.tistory.com/32 해당 블로그에 자세하게 설명되어 있음
+
 ### Data Loading
 ### Data Preprocessing
 1. Standardization: 값의 scale을 평균 0, 분산 1로 표준정규분포를 따르도록 변경, 이상치를 확인하기에 좋음
@@ -9,7 +12,14 @@
 ### Data Shuffle
 ## Model Create
 ## Model Training
+1. 이미지 학습
+2. NLP
+3. 추천 모델
+4. 시계열 데이터 학습
 ## Model Testing
 ## Model Deploy
 ### Kubernetes
+컨테이너 기반의 오케스트레이션 툴
+컨테이너 런타임(docker, crio, containerd 등)은 k8s 최신버전에서 docker가 depricated됨
 ### KubeFlow
+### jenkins
