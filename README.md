@@ -11,6 +11,11 @@ https://ahnjg.tistory.com/32 해당 블로그에 자세하게 설명되어 있�
 3. Regulariztion: 위의 방법들과 다르게 Regularization은 weight가 너무 커지거나 작아지는 것을 방지하기 위한 방법 L1 정규화와 L2 정규화가 있음 / 따로 문서 만들기
 ### Data Shuffle
 ## Model Create
+
+
+
+https://inhovation97.tistory.com/32 --> Batch size와 learning rate의 관련한 논문을 정리 및 실험한 블로그
+
 ## Model Training
 1. 이미지 학습
 2. NLP
