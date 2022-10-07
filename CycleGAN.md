@@ -1,4 +1,5 @@
 # CycleGAN study
+CycleGAN을 공부하면서 추가로 본 것 들을 정리
 ## Data pipeline
 ### Data Loading
 ### Data Preprocessing
