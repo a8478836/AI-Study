@@ -65,6 +65,25 @@ Functional API를 사용하면 좀 더 복잡한 인공신경망을 구현할 �
   
   v) Weight Normalization(WN)
   WN은 mini-batch를 정규화하는 것이 아니라 layer의 가중치들을 정규화 한다. 
+  
+  
+  
+  
+  
+3. Convolutional Neural Network(CNN)
+![image](https://user-images.githubusercontent.com/28583606/194536406-7af4717a-7084-4931-8f21-3189654b9e95.png)
+(출처: https://velog.io/@hayaseleu/Transposed-Convolutional-Layer%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80 블로그 참조)
+
+
+
+CNN, convolutional layer, convolution 등의 의미는 각각 다르지만 편의를 위해 그냥 CNN으로 통합하여 정리함.
+CNN은 고양이에게 특정 그림과 해당 그림을 조금씩 변형한 그림을 보여주었을 때 고양이의 시상 세포(?)가 전체가 아닌 일부분만 활성화하는 것에서 착안하여 만들어진 네트워크.
+합성공 신경망이라고 함.
+kernel: filter라고도 하며 CNN에서 weight 역할 커널을 통해 featrue map을 생성
+stride: 커널을 몇 칸씩 움직일 것인지
+padding: 이미지의 남는 부분을 채우는 것
+
+
 
 ## Model Training
 ## Model Testing
