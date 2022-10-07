@@ -22,6 +22,7 @@ Functional API를 사용하면 좀 더 복잡한 인공신경망을 구현할 �
 2. Bactch Normalization vs Layer Normalization vs Instance Normalization vs Group Normalization
 
   i) Batch Normalization(BN)
+  
   ※ Batch Normalization: Accelerating Deep Network Training b y Reducing Internal Covariate Shift 논문 및 출처: https://eehoeskrap.tistory.com/430 블로그 참조
   신경망에서 학습이 진행될 때 cost 가 0이 되는 global minima를 찾는 쪽으로 학습이 진행된다. 이 때 gradient 기반의 방법들은 미분을 사용하여 극값을 찾게 되는데,
   미분의 특성상 값의 변화에 따라 결과값이 달라진다. 만약 이 변화량이 매우 작거(vanishing)나 매우 커질(exploding) 경우 학습 오차를 줄이지 못하고 특정 값에 수렴해버리는 잘못된 학습이 일어난다.
@@ -33,12 +34,14 @@ Functional API를 사용하면 좀 더 복잡한 인공신경망을 구현할 �
   학습이 불안정하게 진행되는 이유를 internal Covariance Shift 문제라고 한다. 이것은 네트워크의 레이어나 활성화 함수마다 입력 값의 분산이 달라지는 현상이다.
   
   Batch란? 일반적인 gredient 기반의 방법은 모든 데이터를 확인하고 업데이트를 한번 진행하는데, 큰 데이터셋일 경우 메모리부족으로 처리를 못함. 따라서 batch라는 데이터를 나눠서 학습하고 가중치를 업데이트를 하게 됨. (Batch에는 묶은 단위라는 뜻도 있고 전체 데이터를 Batch라고 하는 뜻도 있는 것인가? 표현이 애매하다.)
+  
   Batch Gredient Descent이란? 전체 데이터를 학습하고 가중치를 업데이트
+  
   Stochastic Gredient Descent 이란? 전체 데이터를 학습하고 가중치를 업데이트하는게 아니라 입력 데이터를 하나씩 학습하고 가중치를 업데이트 하는 방식
+  
   Mini-Batch란? 모든 데이터에 대해 가중치 평균을 구하는 것이 아니라 전체 데이터에서 일부 데이터를 묶어서 데이터를 학습하고 가중치를 업데이트 하는 방식
 
-  해당 현상을 막기위해 whitening 이라는 방법이 있는데, 이것은 각 레이어의 분산을 0, 표준편차가 1인 값으로 정규화하는 방법이 있다. 하지만 이 방법은 covariance matrix 계산과 inverse의 계산이
-  필요하기 때문에 계산량이 많고, 일부 파라미터의 영향을 무시한다. 단순히 whitening을 사용하면 최적의 파라미터를 찾기위한 역전파와 무관하게 특정 값이 커질 수 있다.
+  해당 현상을 막기위해 whitening 이라는 방법이 있는데, 이것은 각 레이어의 분산을 0, 표준편차가 1인 값으로 정규화하는 방법이 있다. 하지만 이 방법은 covariance matrix 계산과 inverse의 계산이 필요하기 때문에 계산량이 많고, 일부 파라미터의 영향을 무시한다. 단순히 whitening을 사용하면 최적의 파라미터를 찾기위한 역전파와 무관하게 특정 값이 커질 수 있다.
 
   whitening의 문제를 해결한것이 바로 batch normalization(BN)
   
