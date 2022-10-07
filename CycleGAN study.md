@@ -86,5 +86,6 @@ padding: 이미지의 남는 부분을 채우는 것
 
 
 ## Model Training
+Gredient가 작다면 네트워크의 깊이가 깊어질 수록 기울기는 0에 수렴하게 되고, 크다면 매우 커지면서 gredient vanishing or exploding 현상이 발생한다.
 ## Model Testing
 ## Model Deploy
