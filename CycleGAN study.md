@@ -86,6 +86,12 @@ padding: 이미지의 남는 부분을 채우는 것
 
 
 ## Model Training
-Gredient가 작다면 네트워크의 깊이가 깊어질 수록 기울기는 0에 수렴하게 되고, 크다면 매우 커지면서 gredient vanishing or exploding 현상이 발생한다.
+
+1. Skip/shortcut connection
+기존의 plain network(VGG-19, AlexNet 등)에서는 Gredient가 작다면 네트워크의 깊이가 깊어질 수록 기울기는 0에 수렴하게 되고, 크다면 매우 커지면서 gredient vanishing or exploding 현상이 발생한다.
+따라서, 이러한 문제를 해결하기 위해 몇 단계의 layer가 지나면 입력 값 x를 몇 단계 이후의 output에 더해주는 방법을 취함
+즉, 기존의 방법은 H(x) = x가 되도록 학습 했다면 해당 방법을 사용하면 H(x) = F(x) + x가 되어 미분 값이 0이 되더라도 x가 1이 되어 기울기 소실 문제를 해결할 수 있고 최적화가 가능해진다.
+
+이 방법이 ResNet의 키포인트 중에 하나이다.
 ## Model Testing
 ## Model Deploy
