@@ -55,10 +55,13 @@ Functional API를 사용하면 좀 더 복잡한 인공신경망을 구현할 �
   
   ii) Layer Normalization(LN)
   동일한 레이어의 뉴런들 간의 정규화, CNN으로 분류 문제를 해결할 경우 BN보다 오히려 성능이 떨어진다. RNN에서 오히려 효과가 있음
+  
   iii) Instance Normalization(IN)
     BN은 모델의 학습에서만 사용가능하고 추론 및 테스트의 경우에는 사용할 수 없다. IN은 주로 이미지 스타일 변환에 사용되며 BN과 다르게 이미지 한장씩만 계산하여 각 이미지 분포를 사용한다. 또한 입력 이미지의 명암에 영향을 받지 않는 이미지 분류에 사용. (단, IN을 사용한다고해서 더 좋은 결과를 얻을 수 있는 것은 아님)
+    
   iv) Group Normalization(GN)
   Batch 의 크기가 매우 작을때 효과적임. IN과 매우 유사한데 이미지의 채널들을 그룹으로 묶어서 평균과 표준편차를 구한다. IN은 이미지 채널이 하나로 묶여 있는 것이고, GN은 각각의 채널이 하나로 묶여 있는 것을 의미
+  
   v) Weight Normalization(WN)
   WN은 mini-batch를 정규화하는 것이 아니라 layer의 가중치들을 정규화 한다. 
 
