@@ -1,5 +1,11 @@
 # CycleGAN study
 CycleGAN을 공부하면서 추가로 본 것 들을 정리
+
+CycleGAN의 key point
+일반적인 GAN loss가 있고 input image x 집합과 output image y 집합이 있을 때, G(x)는 input x를 무시하고 그냥 y를 만들어낼 수 있음. 또한 어떤 이미지가 들어와도 똑같은 y를 만들어낼 수 있다. 이러한 상황에서 생성된 y'를 가지고 이전 데이터 x를 식별가능한 정도까지 복원할 수 있도록 제약을 추가한다.
+
+(https://youtu.be/Fkqf3dS9Cqw --> 박대성 님의 강의 영상)
+
 ## Data pipeline
 ### Data Loading
 ### Data Preprocessing
