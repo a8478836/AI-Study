@@ -5,6 +5,7 @@ CycleGAN의 key point
 일반적인 GAN loss가 있고 input image x 집합과 output image y 집합이 있을 때, G(x)는 input x를 무시하고 그냥 y를 만들어낼 수 있음. 또한 어떤 이미지가 들어와도 똑같은 y를 만들어낼 수 있다. 이러한 상황에서 생성된 y'를 가지고 이전 데이터 x를 식별가능한 정도까지 복원할 수 있도록 제약을 추가한다.
 
 CycleGAN의 원래 목적은 어떤 고해상도의 이미지를 화풍을 바꾸는 것(예를 들어, 이미지 -> 웹툰풍으로), **응용 범위가 상당히 넓다.**
+CycleGAN의 가장 큰 단점은: 이미지의 모양을 바꾸기 어려움(encoder-decoder의 경우에는 bottlenect을 생성하는 과정에서 원본을 거의 상실하기 때문에 특정 데이터를 추가하면 모양을 바꿀 수 있음 단 고해상도의 이미지는 얻을 수 없음)
 
 (https://youtu.be/Fkqf3dS9Cqw --> 박대성 님의 강의 영상)
 (https://taehokimmm.github.io/dev/2022-01-10/CycleGAN-Paper-Review --> 논문 리뷰 블로그 )
@@ -106,6 +107,17 @@ padding: 이미지의 남는 부분을 채우는 것
 
 이 방법이 ResNet의 키포인트 중에 하나이다.
 
-2. Mode collapse: 인풋 image의 특성을 무시하고 항상 같은 output을 
+2. Mode collapse: 인풋 image의 특성을 무시하고 항상 같은 output을 만들어내는 현상
+
+3. Objective
+- Least Square GANs: 기존의 GAN Loss는 어느 시점부터 gredient가 flat해지는 현상이 발생하기때문에 LSGANS을 사용(?)
+
+4. L1 Loss: identity loss 라고 하는데, 좀 더 좋은 이미지를 얻을 수 있음. 있어도되고 없어도됨
+
+5. Replay buffer(?): Reinforcement learning에서 사용
+epoch이 증가하면 어느 순간부터 Discriminator가 fake image라고 판단하는 구간이 생김
+discriminator를 여러개 만들고 평균내서 Generator에 반영 --> 메모리를 더욱 소모함 그렇기 때문에 이전 generator가 생성했던 이미지를 discriminator에게 줘서 두가지 작업(이전 데이터 학습 + 새로운 데이터 학습)을 같이 병행하면 좀 더 안정적으로 학습이 가능함.
+
+6. 
 ## Model Testing
 ## Model Deploy
