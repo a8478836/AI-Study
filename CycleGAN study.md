@@ -105,5 +105,7 @@ padding: 이미지의 남는 부분을 채우는 것
 즉, 기존의 방법은 H(x) = x가 되도록 학습 했다면 해당 방법을 사용하면 H(x) = F(x) + x가 되어 미분 값이 0이 되더라도 x가 1이 되어 기울기 소실 문제를 해결할 수 있고 최적화가 가능해진다.
 
 이 방법이 ResNet의 키포인트 중에 하나이다.
+
+2. Mode collapse: 인풋 image의 특성을 무시하고 항상 같은 output을 
 ## Model Testing
 ## Model Deploy
