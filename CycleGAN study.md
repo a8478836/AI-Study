@@ -4,8 +4,13 @@ CycleGAN을 공부하면서 추가로 본 것 들을 정리
 CycleGAN의 key point
 일반적인 GAN loss가 있고 input image x 집합과 output image y 집합이 있을 때, G(x)는 input x를 무시하고 그냥 y를 만들어낼 수 있음. 또한 어떤 이미지가 들어와도 똑같은 y를 만들어낼 수 있다. 이러한 상황에서 생성된 y'를 가지고 이전 데이터 x를 식별가능한 정도까지 복원할 수 있도록 제약을 추가한다.
 
+CycleGAN의 원래 목적은 어떤 고해상도의 이미지를 화풍을 바꾸는 것(예를 들어, 이미지 -> 웹툰풍으로), **응용 범위가 상당히 넓다.**
+
 (https://youtu.be/Fkqf3dS9Cqw --> 박대성 님의 강의 영상)
 (https://taehokimmm.github.io/dev/2022-01-10/CycleGAN-Paper-Review --> 논문 리뷰 블로그 )
+
+ResNet을 사용한 이유는: input 데이터의 고해상도 이미지 퀄리티와 detail을 유지해야했기 때문이다. 하지만 ResNet은 bottleneck이 없기 때문에 메모리를 상당히 소모하고 파라미터가 생각보다 적다는 문제가 있음(?)
+즉, ResNet을 사용했기 때문에 원본 이미지의 퀄리티와 detail을 유지할 수 있다.
 
 ## Data pipeline
 ### Data Loading
