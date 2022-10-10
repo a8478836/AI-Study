@@ -112,12 +112,26 @@ padding: 이미지의 남는 부분을 채우는 것
 3. Objective
 - Least Square GANs: 기존의 GAN Loss는 어느 시점부터 gredient가 flat해지는 현상이 발생하기때문에 LSGANS을 사용(?)
 
-4. L1 Loss: identity loss 라고 하는데, 좀 더 좋은 이미지를 얻을 수 있음. 있어도되고 없어도됨
+4. Adversarial Loss: GAN Loss라고하며, G : X -> Y와 Dy에 대한 loss function임 GAN은 G와 D가 서로 경쟁하면서 G는 D가 판별하기 어렵게, D는 더욱 잘 판별하도록 최적화를 진행하기 때문에 다음과 같은 식으로 표현함
+
+![image](https://user-images.githubusercontent.com/28583606/194830864-482e087c-9cae-461a-98a0-27e538956a15.png)
+
+G를 최소화 하고 D를 최대화하는 방향으로 학습을 진행해야하기 때문에 다음처럼 정리됨
+
+![image](https://user-images.githubusercontent.com/28583606/194830901-eed2d91c-7c1d-428f-adfd-d44c2cab2b7d.png)
+
+마찬가지로 F에 대한 수식도 다음과 같이 정리할 수 있음(역함수 관계)
+
+![image](https://user-images.githubusercontent.com/28583606/194831052-8bc921f9-16ee-450b-a54a-32c679d86d3c.png)
+
+위의 두 개의 loss를 통해 CycleGAN에서는 Cycle Consistency Loss라고 하는 G와 F를 동시에 계산하는 loss를 사용함
+그리고 다시 생성된 fake image를 사용하여 reconstruct하여 원본 이미지와의 loss를 최소화하기 위해 l1 loss(identity loss)를 사용했음(x와 y를 빼주는 것)
+
+![image](https://user-images.githubusercontent.com/28583606/194831439-4a6c396c-df27-4abf-8bd4-f2afb19d3710.png)
 
 5. Replay buffer(?): Reinforcement learning에서 사용
 epoch이 증가하면 어느 순간부터 Discriminator가 fake image라고 판단하는 구간이 생김
 discriminator를 여러개 만들고 평균내서 Generator에 반영 --> 메모리를 더욱 소모함 그렇기 때문에 이전 generator가 생성했던 이미지를 discriminator에게 줘서 두가지 작업(이전 데이터 학습 + 새로운 데이터 학습)을 같이 병행하면 좀 더 안정적으로 학습이 가능함.
 
-6. 
 ## Model Testing
 ## Model Deploy
