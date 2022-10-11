@@ -143,4 +143,8 @@ discriminator를 여러개 만들고 평균내서 Generator에 반영 --> 메모
 
 6. identity mapping: 어떤 함수에서 입력과 출력이 동일한 것
 ## Model Testing
+
+1. 1067장 학습하는 데에 시간이 오래걸림(10시간).
+2. loss function 변경해보기(MSE, MAE -> KL divergence)
+
 ## Model Deploy
