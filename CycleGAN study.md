@@ -2,6 +2,13 @@
 CycleGAN을 공부하면서 추가로 본 것 들을 정리
 https://keras.io/examples/generative/cyclegan/ 참조
 
+
+pix2pix: 흑백 이미지를 컬러 이미지로 바꾸는 것이 주 목적이며 이를 응용하여 픽셀단위로 나누어진 흑백 사진을 실제 색을 입혀서 한장의 컬러 사진으로 만들 수 있음. 하지만 결과는 전체적으로 뿌옇고, 새로운 흑백 사진을 입력으로 넣어주면 색에 대한 가이드라인이 없어서 항상 중간 채도, 명도의 컬러 이미지가 나온다.
+
+GAN: Generative adversarial network, generator와 discriminator로 이루어진 네트워크로 gen은 가짜 이미지를 만들어 dis가 판별하기 어렵도록 만들고 dis는 gen이 만들어낸 가짜 이미지를 잘 판별하려는 방향으로 학습한다. 이 두 네트워크가 서로 적대적인 상태이므로 GAN이라고 함. pix2pix loss function에 GAN loss function을 넣었더니 상당히 잘 동작하였음.
+
+하지만 또 다른 문제는  pix2pix는 항상 paired data가 필요하다. 항상 데이터셋을 구하는 것이 쉬운 것은 아니며 실제 세계에서는 unpaired data가 훨씬 많다. 또한, 더 이상 구할 수 없는 data도 존재한다. pix2pix처럼 흑백 사진을 컬러 사진으로 바꾸거나 이미지의 스타일을 바꾸는 것과 동시에 unpaired data를 학습하는 방법이 필요하다. 이를 위한 해결책으로 고안된 것이 CycleGAN이다.
+
 CycleGAN의 key point
 일반적인 GAN loss가 있고 input image x 집합과 output image y 집합이 있을 때, G(x)는 input x를 무시하고 그냥 y를 만들어낼 수 있음. 또한 어떤 이미지가 들어와도 똑같은 y를 만들어낼 수 있다. 이러한 상황에서 생성된 y'를 가지고 이전 데이터 x를 식별가능한 정도까지 복원할 수 있도록 제약을 추가한다.
 
