@@ -141,5 +141,6 @@ G를 최소화 하고 D를 최대화하는 방향으로 학습을 진행해야�
 epoch이 증가하면 어느 순간부터 Discriminator가 fake image라고 판단하는 구간이 생김
 discriminator를 여러개 만들고 평균내서 Generator에 반영 --> 메모리를 더욱 소모함 그렇기 때문에 이전 generator가 생성했던 이미지를 discriminator에게 줘서 두가지 작업(이전 데이터 학습 + 새로운 데이터 학습)을 같이 병행하면 좀 더 안정적으로 학습이 가능함.
 
+6. identity mapping: 어떤 함수에서 입력과 출력이 동일한 것
 ## Model Testing
 ## Model Deploy
