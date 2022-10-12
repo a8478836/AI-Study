@@ -6,6 +6,8 @@ GoogleNet은 inception 모듈을 아래 그림처럼 여러번 이어 붙인 모
 
 ![image](https://user-images.githubusercontent.com/28583606/195258482-90648c8d-6146-4131-8c0e-c4fed31a9f86.png)
 
+GoogleNet의 주요 특징은 모델의 depth를 늘려도 연산장이 증가하지 않고 유지된다. 
+
 ## 1 by 1 Convolution
 
 ![image](https://user-images.githubusercontent.com/28583606/195276210-debe075c-f237-4111-b9e1-3b3219071577.png)
