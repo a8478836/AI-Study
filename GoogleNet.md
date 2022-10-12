@@ -35,5 +35,6 @@ number of parameters in 1 layer = filter size로 계산 = (filter width * filter
 
 GoogleNet의 inception module은 위 그림과 같다. 마지막에 concatenation 해야 하기때문에 output size는 input size와 동일해야하므로 padding을 same으로 설정해야함
 
-※ 왜 inception module은 4개의 feature map을 생성하고 concatenate 했을까?
+※ Q. 왜 inception module은 4개의 feature map을 생성하고 concatenate 했을까?
+A. 이미지에서 어떤 형상은 좀 더 큰 필터를 통과해야한다. 예를 들어 얼굴 이미지에서 1 x 1 필터로 눈을 인식하는 것 보다 더큰 n by n 필터로 눈을 인식하는것이 더 효과적이다. 그렇기 때문에 inception module에서는 1 x 1 convolution 말고 3 x 3 또는 5 x 5 의 convolution filter 연산을 병렬로 계산한다.(즉, 이건 모델 개발자의 마음이라는 뜻) 하지만 잘 생각해보아야할 것은 5 x 5 convolution filter 을 사용한다는 것은 그만큼 파라미터의 개수도 증가한다는 뜻이다. 그렇기 때문에 1 by 1 convolution으로 파라미터의 수를 줄여 효과적인 학습이 일어나도록 했다. 또한 concatenate를 한 이유는 각 feature map은 sparse structure일 수 있기 때문에 concatenate 함으로써 상대적으로 dense한 submatrix를 생성한다.
 
