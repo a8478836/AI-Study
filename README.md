@@ -21,6 +21,8 @@ https://inhovation97.tistory.com/32 --> Batch size와 learning rate의 관련한
 
 
 1. CycleGAN
+2. GoogleNet
+3. ResNet
 
 ## Model Training
 1. 이미지 처리
