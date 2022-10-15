@@ -1,4 +1,4 @@
-#Going deeper with convolutions
+# Going deeper with convolutions
 
 Christian Szegedy(Google Inc.), et al.
 
