@@ -1,4 +1,5 @@
 #Going deeper with convolutions
+
 Christian Szegedy(Google Inc.), et al.
 
 ## Abstract
