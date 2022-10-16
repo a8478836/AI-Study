@@ -14,6 +14,12 @@ ILSVRC14에 제출한 모델의 이름은 GoogleNet이며 22개의 레이어를 
 이 논문에서는 컴퓨터 비전에서 효율적인 딥 뉴럴 네트워크 아키텍처가 주제이며, 인터넷 밈인 'we need to go deeper'에서 기인했습니다. 'Deep'에는 두 개의 의미가 있습니다. 첫번 째는 Inception Module이라는 형태의 새로운 레벨의 집합을 소개하고, 다른 하나는 실제로 네트워크의 깊이를 깊게 설계 했습니다. 우리 모델은 ILSVRC 2014에서 좋은 성능을 보여주었습니다.
 
 ## Related Work
+LeNET5-5과 시작된 CNN은 전형적으로 convolutional layer를 여러개 쌓은 네트워크이다. 개별적으로 normalization과 pooling layer를 넣는 경우도 있고 이 다음에 fully-connected layer를 쌓는다. 이런 기본적인 설계에서 다양한 변형들은 MNIST, CIFAR와 같은 유명한 데이터셋을 사용한 이미지 분류 대회에서 최고의 성능을 냈다. ImageNet과 같은 더욱 거대한 네트워크에서 최근 동향은 layer의 수와 크기를 더욱 늘리면서 오버피팅을 예방하기 위해 dropout과 같은 방법을 사용한다.
+
+하지만 max-pooling layer는 공간 정보를 잃어버림에도, 다양한 분야에서 성공적인 효과를 거둔 CNN이 있습니다. 영장류의 대뇌 피질에서 착안하여 개발된 inception 모델이 있는데, 고정된 Gabor 필터를 사용했지만 모든 필터를 학습합니다.(연산량이 많아진다는 것을 의미하는듯). GoogleNet은 22개의 깊은 네트워크 모델입니다.
+
+뉴럴 네트워크의 성능을 끌어올리기 위해 Network-in-network라는 접근 방법이 있습니다. 이 방법은 Convolutional layer에서 ReLU를 적용한 1 by 1 con.를 사용했다. 무거운 GoogleNet에 이 아이디어를 적용했다. 1 by 1 conv.를 적용한 이유는 연산 bottleneck을 줄이기 위해 차원 감소 효과와 네트워크 크기에 제한을 주기 위해서입니다. 이 방법으로 인해 모델의 깊이가 깊어지고 넓이 또한 커지더라도 아무런 영향없이 효과적인 성능을 보여줍니다.
+
 
 ## Motivation and High Level Considerations
 
