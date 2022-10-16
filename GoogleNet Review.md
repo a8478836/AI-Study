@@ -18,7 +18,7 @@ LeNET5-5과 시작된 CNN은 전형적으로 convolutional layer를 여러개 �
 
 하지만 max-pooling layer는 공간 정보를 잃어버림에도, 다양한 분야에서 성공적인 효과를 거둔 CNN이 있습니다. 영장류의 대뇌 피질에서 착안하여 개발된 inception 모델이 있는데, 고정된 Gabor 필터를 사용했지만 모든 필터를 학습합니다.(연산량이 많아진다는 것을 의미하는듯). GoogleNet은 22개의 깊은 네트워크 모델입니다.
 
-뉴럴 네트워크의 성능을 끌어올리기 위해 Network-in-network라는 접근 방법이 있습니다. 이 방법은 Convolutional layer에서 ReLU를 적용한 1 by 1 con.를 사용했다. 무거운 GoogleNet에 이 아이디어를 적용했다. 1 by 1 conv.를 적용한 이유는 연산 bottleneck을 줄이기 위해 차원 감소 효과와 네트워크 크기에 제한을 주기 위해서입니다. 이 방법으로 인해 모델의 깊이가 깊어지고 넓이 또한 커지더라도 아무런 영향없이 효과적인 성능을 보여줍니다.
+뉴럴 네트워크의 성능을 끌어올리기 위해 Network-in-network라는 접근 방법이 있습니다. 이 방법은 Convolutional layer에서 ReLU를 적용한 1 by 1 con.를 사용했다. 무거운 GoogleNet에 이 아이디어를 적용했습니다. 1 by 1 conv.를 적용한 이유는 연산 bottleneck을 줄이기 위해 차원 감소 효과와 네트워크 크기에 제한을 주기 위해서입니다. 이 방법으로 인해 모델의 깊이가 깊어지고 넓이 또한 커지더라도 아무런 영향없이 효과적인 성능을 보여줍니다.
 
 
 ## Motivation and High Level Considerations
