@@ -20,7 +20,10 @@ LeNET5-5과 시작된 CNN은 전형적으로 convolutional layer를 여러개 �
 
 뉴럴 네트워크의 성능을 끌어올리기 위해 Network-in-network라는 접근 방법이 있습니다. 이 방법은 Convolutional layer에서 ReLU를 적용한 1 by 1 con.를 사용했다. 무거운 GoogleNet에 이 아이디어를 적용했습니다. 1 by 1 conv.를 적용한 이유는 연산 bottleneck을 줄이기 위해 차원 감소 효과와 네트워크 크기에 제한을 주기 위해서입니다. 이 방법으로 인해 모델의 깊이가 깊어지고 넓이 또한 커지더라도 아무런 영향없이 효과적인 성능을 보여줍니다.
 
+현재 object detection에서 가장 우수한 성능을 보여주는 R-CNN은 전체 문제를 2개의 부분 문제로 분해하여 해결합니다. (low-level cue와 superpixel를 이용하고 CNN을 적용한다는 뜻인듯. 즉 2-stage learning) 본 논문에서도 비슷한 파이프라인을 적용했지만, bounding box recall을 향상시키기 위한 multi-box 바법과 bounding box의 더 나은 분류 성능을 위해 앙상블 방법 등을 적용했습니다.
 
 ## Motivation and High Level Considerations
+
+대부분의 일직선-전방향 방법의 DNN은 깊이를 깊게하고 유닛의 수를 증가시켜서 성능을 향상시켰으며 이 방법은 가장 간단한 모델의 성능 방법이었다. 하지만 이 방법은 모델이 커지면 파라미터의 수가 증가하고 만약 학습 데이터가 제한되어 있으면 오버 피팅이 일어난다.
 
 ## Architectural Details
