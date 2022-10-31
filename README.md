@@ -10,17 +10,35 @@ https://ahnjg.tistory.com/32 해당 블로그에 자세하게 설명되어 있�
 Feature Engineering도 중요함.."
 
 ### Data Loading
+  df = pd.read_csv()를 사용하여 .csv 파일들을 읽지만 기타 확장자들(영상이나 의료 분야에서 사용하는 CT 결과)의 경우 다른 방식으로 데이터를 로딩함.
+  index를 읽어올 수도 있는데 이때 index=False로 설정하면 index를 읽어오지 않음
+  
+  1. df.loc()
+  2. df.iloc()
 ### Data Preprocessing
-1. Standardization: 값의 scale을 평균 0, 분산 1로 표준정규분포를 따르도록 변경, 이상치를 확인하기에 좋음
-  1) scikit-learn에 StandardScaler
-3. Normalization: 데이터의 scale을 0~1 사이의 값으로 변환하는 것 --> 특정 값이 크거나 너무 작으면 학습시 weight 조정에 영향을 주기 때문에 변환함
-  1) Min-Max Scaling: 각 feature 마다 0~1사이의 값으로 정규화하는데 이상치에 굉장히 민감하다
-  2) MaxAbs Scaling: MaxAbs는 -1 ~ 1의 값으로 데이터를 정규화함 이것도 마찬가지로 이상치에 민감한 편
-  3) Robust Scaling: IQR(사분위수)를 이용하여 정규화를 진행하는데 이상치가 많은 데이터에 효과적임. 사분위수는 데이터의 분포에서 신뢰구간을 구한 후 25% ~ 75%의 데이터를 안정적인 데이터로 취급한다. 아래 그림 참고
-     ![image](https://user-images.githubusercontent.com/28583606/198941849-a788aacc-e71e-4a08-b37b-9d7236852dd3.png)
-
-     
-4. Regulariztion: 위의 방법들과 다르게 Regularization은 weight가 너무 커지거나 작아지는 것을 방지하기 위한 방법 L1 정규화와 L2 정규화가 있음 / 따로 문서 만들기
+1. 데이터 확인
+  보통 pandas를 자주 사용하는데 DASK라는 라이브러리도 눈여겨 볼만한듯
+  df.info(): 데이터프레임의 row의 개수, 데이터의 타입 등을 확인 가능
+  df.describe(): 문자열 데이터나 수치형 데이터를 따로 보여주는 듯. 수치형 데이터의 경우 분산,평균,최소,최대,중앙 값등을 계산해서 보여준다.
+  df.head: 데이터프레임의 위에서 몇개이 데이터를 확인가능
+2. 데이터 분포 확인 및 처리
+  왜도와 척도
+3. 데이터 이상치 확인 및 처리
+  seaborn.boxplot()을 사용하거나 matlab으로 IQR를 직접 구해서 확인
+4. 데이터 결측치 확인 및 처리
+  isnull().sum()
+5. 중복된 데이터 확인 및 처리
+  duplicated().sum()
+6. 데이터 정규화
+  - Standardization: 값의 scale을 평균 0, 분산 1로 표준정규분포를 따르도록 변경, 이상치를 확인하기에 좋음
+    1) scikit-learn에 StandardScaler
+  - Normalization: 데이터의 scale을 0~1 사이의 값으로 변환하는 것 --> 특정 값이 크거나 너무 작으면 학습시 weight 조정에 영향을 주기 때문에 변환함
+    1) Min-Max Scaling: 각 feature 마다 0~1사이의 값으로 정규화하는데 이상치에 굉장히 민감하다
+    2) MaxAbs Scaling: MaxAbs는 -1 ~ 1의 값으로 데이터를 정규화함 이것도 마찬가지로 이상치에 민감한 편
+    3) Robust Scaling: IQR(사분위수)를 이용하여 정규화를 진행하는데 이상치가 많은 데이터에 효과적임. 사분위수는 데이터의 분포에서 신뢰구간을 구한 후 25% ~ 75%의 데이터를 안정적인 데이터로 취급한다. 아래 그림 참고
+       ![image](https://user-images.githubusercontent.com/28583606/198941849-a788aacc-e71e-4a08-b37b-9d7236852dd3.png)
+        
+  - Regulariztion: 위의 방법들과 다르게 Regularization은 weight가 너무 커지거나 작아지는 것을 방지하기 위한 방법 L1 정규화와 L2 정규화가 있음 / 따로 문서 만들기
 ### Data Shuffle
 ## Model Create
 
